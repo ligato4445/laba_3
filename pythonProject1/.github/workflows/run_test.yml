@@ -1,42 +1,33 @@
-name: Continuous Integration
+name: Tests
 
 on:
   push:
     branches:
-      - test
+      - test  # Ваша основная ветка, например, "main" или "master"
+  pull_request:
+    branches:
+      - tese  # Ваша основная ветка, например, "main" или "master"
 
 jobs:
-  test:
-    runs-on: windows-latest
+  build_and_test:
+    name: Build and Test
+    runs-on: windows-latest  # Используйте нужный вам образ
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8  # Укажите нужную версию Python
 
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  
 
-      - name: Run Tests and Generate HTML Report
-        run: |
-          pytest test.py --html=report.html
-        continue-on-error: true
-
-      - name: Upload Test Report
-        if: success()
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-report
-          path: report.html
-
-      - name: Upload Code as Artifact
-        if: success()
-        uses: actions/upload-artifact@v2
-        with:
-          name: code
-          path: .
+    - name: Run tests
+      uses: pytest-dev/pytest-action@v2
+      with:
+        args: --html=report.html --self-contained-html
