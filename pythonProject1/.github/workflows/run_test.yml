@@ -3,15 +3,15 @@ name: Automated tests
 on:
   push:
     branches:
-      - main  # Ваша основная ветка, например, "main" или "master"
+      - function  # Ваша основная ветка, например, "main" или "master"
   pull_request:
     branches:
-      - main  # Ваша основная ветка, например, "main" или "master"
+      - function  # Ваша основная ветка, например, "main" или "master"
 
 jobs:
   build_and_test:
     name: Build and Test
-    runs-on: ubuntu-latest  # Используйте нужный вам образ
+    runs-on: windows-latest  # Используйте нужный вам образ
 
     steps:
     - name: Checkout code
