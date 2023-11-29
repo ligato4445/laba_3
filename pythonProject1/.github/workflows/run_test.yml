@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - test
+      - function
 
 jobs:
   test:
