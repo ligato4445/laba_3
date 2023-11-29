@@ -1,7 +1,9 @@
 name: Automated tests
 
 on:
-  push
+  push:
+    branches:
+      - test
 
 jobs:
   build_and_test:
