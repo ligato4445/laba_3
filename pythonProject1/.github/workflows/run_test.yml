@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Tests and Generate HTML Report
         run: |
-          pytest fromlaba2Test.py --html=report.html
+          pytest test.py --html=report.html
         continue-on-error: true
 
       - name: Upload Test Report
