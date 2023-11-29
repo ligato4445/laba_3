@@ -1,12 +1,7 @@
 name: Automated tests
 
 on:
-  push:
-    branches:
-      - function  # Ваша основная ветка, например, "main" или "master"
-  pull_request:
-    branches:
-      - function  # Ваша основная ветка, например, "main" или "master"
+  push
 
 jobs:
   build_and_test:
