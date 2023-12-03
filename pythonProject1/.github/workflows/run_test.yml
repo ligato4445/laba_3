@@ -1,8 +1,9 @@
 name: Continuous Integration
 
 on:
-  push
-
+  push:
+    branches: [master]
+    workflow_dispatch:
 jobs:
   test:
     runs-on: windows-latest
