@@ -33,7 +33,7 @@ def test_bubble_sort():
 # Тесты для функции калькулятора
 def test_calculator():
     # Проверка на корректные входные данные
-    assert calculator(2, 3, '+') == 5
+    assert calculator(2, 4, '+') == 6
     assert calculator(5, 2, '-') == 3
     assert calculator(4, 6, '*') == 24
     assert calculator(8, 4, '/') == 2
