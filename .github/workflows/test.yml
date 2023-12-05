@@ -19,7 +19,7 @@ jobs:
 
       - name: Run Tests and Generate HTML Report
         run: |
-          pytest test.py --html=report.html --self-contained-html
+          pytest test_all.py --html=report.html --self-contained-html
         continue-on-error: true
 
       - name: Upload Test Report
